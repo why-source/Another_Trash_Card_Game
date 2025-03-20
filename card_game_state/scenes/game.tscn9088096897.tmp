@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://dx14t8m56euln"]
+
+[ext_resource type="Script" uid="uid://bs60hv4ygfptb" path="res://scenes/game.gd" id="1_iywne"]
+[ext_resource type="PackedScene" uid="uid://d17rqwirmadct" path="res://scenes/Card.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://cfv6jefqj5j02" path="res://images/icon.svg" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://c78sloquut3db" path="res://scenes/Screw.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://d2rb4i2oowo0k" path="res://scripts/cursor.gd" id="3_lnu2h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
+radius = 1.0
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_iywne")
+
+[node name="Cursor" type="Area2D" parent="."]
+script = ExtResource("3_lnu2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor"]
+shape = SubResource("CircleShape2D_lbhrr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cursor"]
+position = Vector2(-3.8147e-06, -1.14441e-05)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_lbhrr")
+
+[node name="Card_Position1" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(192, 192)
+
+[node name="Card_Position2" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(384, 192)
+
+[node name="Card_Position3" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(576, 192)
+
+[node name="Card_Position4" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(768, 192)
+
+[node name="Card_Position5" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(960, 192)
+
+[node name="Card_Position6" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(192, 384)
+
+[node name="Card_Position7" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(384, 384)
+
+[node name="Card_Position8" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(576, 384)
+
+[node name="Card_Position9" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(768, 384)
+
+[node name="Card_Position10" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(960, 384)
+
+[node name="Card1" parent="." node_paths=PackedStringArray("Cursor") instance=ExtResource("1_uwrxv")]
+position = Vector2(192, 192)
+Cursor = NodePath("../Cursor")
+
+[node name="Card2" parent="." node_paths=PackedStringArray("Cursor") instance=ExtResource("1_uwrxv")]
+position = Vector2(384, 192)
+Cursor = NodePath("../Cursor")
+
+[node name="Card3" parent="." node_paths=PackedStringArray("Cursor") instance=ExtResource("1_uwrxv")]
+position = Vector2(576, 192)
+Cursor = NodePath("../Cursor")
+
+[node name="Card4" parent="." node_paths=PackedStringArray("Cursor") instance=ExtResource("1_uwrxv")]
+position = Vector2(768, 192)
+Cursor = NodePath("../Cursor")
+
+[node name="Card5" parent="." node_paths=PackedStringArray("Cursor") instance=ExtResource("1_uwrxv")]
+position = Vector2(960, 192)
+Cursor = NodePath("../Cursor")
+
+[node name="Card6" parent="." node_paths=PackedStringArray("Cursor") instance=ExtResource("1_uwrxv")]
+position = Vector2(192, 384)
+Cursor = NodePath("../Cursor")
+
+[node name="Card7" parent="." node_paths=PackedStringArray("Cursor") instance=ExtResource("1_uwrxv")]
+position = Vector2(384, 384)
+Cursor = NodePath("../Cursor")
+
+[node name="Card8" parent="." node_paths=PackedStringArray("Cursor") instance=ExtResource("1_uwrxv")]
+position = Vector2(576, 384)
+Cursor = NodePath("../Cursor")
+
+[node name="Card9" parent="." node_paths=PackedStringArray("Cursor") instance=ExtResource("1_uwrxv")]
+position = Vector2(768, 384)
+Cursor = NodePath("../Cursor")
+
+[node name="Card10" parent="." node_paths=PackedStringArray("Cursor") instance=ExtResource("1_uwrxv")]
+position = Vector2(960, 384)
+Cursor = NodePath("../Cursor")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://d17rqwirmadct"]
+
+[ext_resource type="Script" uid="uid://itdilemo6y0w" path="res://scripts/card.gd" id="1_yiag5"]
+[ext_resource type="Texture2D" uid="uid://ccha33rgqr6rw" path="res://images/CARDS/Zback.png" id="2_4dx8l"]
+[ext_resource type="Script" uid="uid://dq8r8q6dg5ju3" path="res://states/StateMachine.gd" id="2_tgmmg"]
+[ext_resource type="Script" uid="uid://dalcj6ww1srnh" path="res://states/Dragging_Card.gd" id="4_40ytf"]
+[ext_resource type="Script" uid="uid://cnq5o54acf58m" path="res://states/Idle_Card.gd" id="4_qf083"]
+[ext_resource type="Script" uid="uid://21vi5i0p5fbg" path="res://states/Released_Card.gd" id="6_5273u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dx8l"]
+size = Vector2(20, 28.0952)
+
+[node name="Card" type="Node2D" node_paths=PackedStringArray("Card_Place")]
+script = ExtResource("1_yiag5")
+Card_Place = NodePath(".")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4.2, 4.2)
+texture = ExtResource("2_4dx8l")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(4.2, 4.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2.04359e-06)
+shape = SubResource("RectangleShape2D_4dx8l")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_tgmmg")
+initial_state = NodePath("Idle_Card")
+
+[node name="Dragging_Card" type="Node" parent="StateMachine" node_paths=PackedStringArray("Card")]
+script = ExtResource("4_40ytf")
+Card = NodePath("../..")
+metadata/_custom_type_script = "uid://dalcj6ww1srnh"
+
+[node name="Idle_Card" type="Node" parent="StateMachine" node_paths=PackedStringArray("Card")]
+script = ExtResource("4_qf083")
+Card = NodePath("../..")
+metadata/_custom_type_script = "uid://cnq5o54acf58m"
+
+[node name="Released_Card" type="Node" parent="StateMachine" node_paths=PackedStringArray("Card")]
+script = ExtResource("6_5273u")
+Card = NodePath("../..")
+metadata/_custom_type_script = "uid://21vi5i0p5fbg"
+
+[connection signal="input_event" from="Area2D" to="StateMachine/Idle_Card" method="_on_area_2d_input_event"]

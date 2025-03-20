@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv3pk87t3a0n2"]
+
+[ext_resource type="Texture2D" uid="uid://cfv6jefqj5j02" path="res://images/icon.svg" id="1_elk11"]
+[ext_resource type="Script" uid="uid://2ggo0h14jvyu" path="res://scripts/empty_card.gd" id="1_qb4wq"]
+
+[node name="Empty Card" type="Node2D"]
+script = ExtResource("1_qb4wq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_elk11")
